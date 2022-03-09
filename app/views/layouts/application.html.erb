@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RedditOnRails</title>
+    <title>Reddit On Rails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,16 +11,16 @@
   </head>
   
   <body>
-  <%# user is logged in, show log out link %>
-  <% if current_user.present? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-  <%# user is not logged in, show signup and login links %>
-  <% else %>
-    <%= link_to 'Sign In', new_user_session_path %> |
-    <%= link_to 'Register Now!', new_user_registration_path %>
-  <% end %>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+  <%= render "layouts/navigations"%>
+
+  <div class="container">
+   <%= render "layouts/messages"%>
+      <%= yield %>
+      
+  </div>
+
+  <%= render "layouts/footer"%>
+
   </body>
 </html>

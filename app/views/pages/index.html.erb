@@ -1,3 +1,17 @@
-<h2>I AMA Homepage</h2>
+<% if user_signed_in? %>
+ 
+<h1>Welcome to Reddit on Rails</h1>
+
+<p>Thank you for your registration.</p>
+
+
+
+
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the CryptoTracker Application</h1>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>
 
 <%= link_to "Add a link", new_link_path %>
